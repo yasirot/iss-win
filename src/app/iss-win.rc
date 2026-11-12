@@ -1,0 +1,63 @@
+#pragma code_page(65001)
+#include <windows.h>
+#include "resource.h"
+
+IDD_CONNECT DIALOGEX 0, 0, 268, 257
+STYLE DS_SHELLFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "iShareScreen に接続"
+FONT 9, "Segoe UI", 400, 0, 0x1
+BEGIN
+    LTEXT           "接続先:", -1, 10, 12, 60, 10
+    COMBOBOX        IDC_PROFILE, 74, 10, 146, 160, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "削除", IDC_PROFILE_DELETE, 224, 9, 34, 14
+
+    LTEXT           "ホスト:", -1, 10, 31, 60, 10
+    EDITTEXT        IDC_HOST, 74, 29, 128, 13, ES_AUTOHSCROLL
+    LTEXT           "ポート:", -1, 208, 31, 24, 10
+    EDITTEXT        IDC_PORT, 232, 29, 26, 13, ES_NUMBER
+
+    LTEXT           "ユーザー名:", -1, 10, 50, 60, 10
+    EDITTEXT        IDC_USER, 74, 48, 184, 13, ES_AUTOHSCROLL
+    LTEXT           "パスワード:", -1, 10, 69, 60, 10
+    EDITTEXT        IDC_PASSWORD, 74, 67, 184, 13, ES_PASSWORD | ES_AUTOHSCROLL
+    AUTOCHECKBOX    "パスワードを保存する (Windows 資格情報マネージャー)", IDC_SAVE_PASSWORD, 74, 83, 184, 10
+
+    LTEXT           "モード:", -1, 10, 103, 60, 10
+    COMBOBOX        IDC_MODE, 74, 101, 184, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "映像:", -1, 10, 122, 60, 10
+    COMBOBOX        IDC_CODEC, 74, 120, 184, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "解像度:", -1, 10, 141, 60, 10
+    COMBOBOX        IDC_RESOLUTION, 74, 139, 184, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "GPU:", -1, 10, 160, 60, 10
+    COMBOBOX        IDC_GPU, 74, 158, 184, 120, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    AUTOCHECKBOX    "ホスト側の画面を隠す (curtain)", IDC_CURTAIN, 74, 177, 184, 10
+    AUTOCHECKBOX    "Mac の仮想ディスプレイを 2 枚にする (高パフォーマンス)", IDC_TWO_DISPLAYS, 74, 190, 184, 10
+
+    LTEXT           "", IDC_NOTE, 10, 206, 248, 24
+
+    DEFPUSHBUTTON   "接続", IDOK, 152, 233, 50, 15
+    PUSHBUTTON      "キャンセル", IDCANCEL, 208, 233, 50, 15
+END
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,1,0,0
+ PRODUCTVERSION 0,1,0,0
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "FileDescription", "iShareScreen for Windows"
+            VALUE "FileVersion", "0.1.0"
+            VALUE "ProductName", "iss-win"
+            VALUE "ProductVersion", "0.1.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END

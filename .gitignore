@@ -1,0 +1,7 @@
+/build/
+/docs/
+/third_party/ffmpeg/
+/logs/
+*.user
+.vs/
+__pycache__/
